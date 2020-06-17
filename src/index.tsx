@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import AsyncStateProvider from './context/AsyncStateProvider';
+import UsersProvider from './context/UsersProvider';
 
 ReactDOM.render(
-  <AsyncStateProvider>
+  <UsersProvider>
     <App />
-  </AsyncStateProvider>,
+  </UsersProvider>,
   document.getElementById('app')
 );

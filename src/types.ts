@@ -33,8 +33,3 @@ export interface Photo {
   url: string;
   thumbnailUrl: string;
 }
-
-export interface AsyncState<T> {
-  data: T[];
-  fetchData: () => void;
-}

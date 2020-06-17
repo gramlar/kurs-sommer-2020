@@ -1,21 +1,18 @@
-import React, { FunctionComponent, useContext, useEffect } from 'react';
-import { hot } from 'react-hot-loader/root';
-import { AsyncStateContext } from '../context/AsyncStateProvider';
-import ItemList from './ItemList';
+import React, { FunctionComponent, useContext } from 'react';
+import { UsersContext } from '../context/UsersProvider';
 
 const App: FunctionComponent = () => {
-  const { usersAsync, photosAsync } = useContext(AsyncStateContext);
+  const { users } = useContext(UsersContext);
 
-  useEffect(() => {
-    usersAsync.fetchData();
-    photosAsync.fetchData();
-  }, []);
-
-  return usersAsync.data && photosAsync.data ? (
-    <ItemList />
+  return users ? (
+    <div>
+      {users.map((user, it) => (
+        <div key={it}>{user.name}</div>
+      ))}
+    </div>
   ) : (
-    <p>Her skulle det vært en spinner, men jeg ga litt beng i styling</p>
+    <p>Ting tar assa laster</p>
   );
 };
 
-export default hot(App);
+export default App;
